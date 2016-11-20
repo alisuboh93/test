@@ -20,12 +20,12 @@ function get_fun()
     <title>
         
     </title>
-    
+  
     <body>
-        
+       
         <form method="POST" action="<?php $_SERVER['PHP_SELF']?>">
         <select name="list_name" id="list_name" onchange="this.form.submit();">
-            <option value=""></option>
+            <option value="pleas select">pleas select</option>
             <?php
             
               for ($i=0;$i<count($users);$i++) 
@@ -36,14 +36,19 @@ function get_fun()
             ?> 
         </select>
         </form>
-        
-        
-            
+            <br/>
+         <br/>
+         <div id="2"> <a href="edit.php">To Edit User</a> </div>
+         <br/>
+         <br/>
+         
+        <div id="1">  
         <?php
-        $id;
-if($_POST['list_name']=!""){
+        
+if((string)$_POST['list_name']!="pleas select"){
 if(isset($_POST['list_name']))
 {
+    $id;
   $id=  $_POST['list_name'];
 
 $full= new DBConnection();
@@ -66,9 +71,10 @@ echo "<table border='1'>
 }}
         
         ?>
+        </div>
         
         
-      
+       
         
     </body>
     

@@ -39,11 +39,12 @@ class User {
         
     }
     
-    public function editUser($user){
+    public function editUser(array $old,array $new){
         $obj = new DB();
-        $edit_user = $obj->execute("select * from info_p where name = ".$user);
-        $obj->execute("update info_p set");
-        
+        $edit_user = $obj->execute("select * from info_p where name = ".$name);
+        $stredit = "update info_p set ('".$old[0]."','".$old[1]."','".$old[2]."') valuse ('".$new[0]."','".$new[1]."','".$new[2]."')";
+        $obj->execute($stredit);
+      
     }
     
     public function deleteUser($user){
